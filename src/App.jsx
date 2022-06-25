@@ -7,13 +7,15 @@ function App() {
       time: 5,
       duration: 5,
       text: "This is a popup for 5 seconds",
-      thumbnail: null,
+      thumbnail: "images/default-thumbnail.jpg",
+      position: "top",
     },
     {
       time: 15,
       duration: 10,
       text: "This is a popup for 10 seconds",
-      thumbnail: null,
+      thumbnail: "images/default-thumbnail.jpg",
+      position: "bottom",
     },
   ];
 

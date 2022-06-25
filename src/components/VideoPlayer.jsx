@@ -1,11 +1,13 @@
 import { useState } from "react";
 import styles from "../styles/VideoPlayer.module.css";
+import VideoPopup from "./VideoPopup";
 
 export default function VideoPlayer({ videoSource, popupData }) {
   const [popupVisible, setPopupVisible] = useState(false);
   const [currentPopupIndex, setCurrentPopupIndex] = useState(0);
-  const [popupContent, setPopupContent] = useState("This is some test content");
+  const [currentPopupItem, setCurrentPopupItem] = useState(null);
 
+  popupData.forEach((item) => console.log(item));
   // create a videoPaused state and check if that has changed
   // if the video is paused we have to pause the timers that
   // close the popups also.
@@ -22,6 +24,7 @@ export default function VideoPlayer({ videoSource, popupData }) {
           () => setPopupVisible(false),
           popupData[currentPopupIndex].duration * 1000
         );
+        setCurrentPopupItem(popupData[currentPopupIndex]);
         setCurrentPopupIndex(currentPopupIndex + 1);
       }
     }
@@ -30,9 +33,15 @@ export default function VideoPlayer({ videoSource, popupData }) {
   return (
     <div className={styles.videoPlayerContainer}>
       {popupVisible && (
-        <div className={styles.popup}>
-          <p>{popupContent}</p>
-        </div>
+        // <div className={styles.popup}>
+        //   <p>{popupContent}</p>
+        // </div>
+        <VideoPopup
+          popupContent={currentPopupItem.text}
+          popupThumbnail={currentPopupItem.thumbnail}
+          popupTitle="This is the title."
+          position={currentPopupItem.position}
+        />
       )}
 
       <video

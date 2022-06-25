@@ -20,6 +20,33 @@ PopupWithThumbnail.args = {
   popupTitle: "This is the title",
   popupThumbnail: "images/default-thumbnail.jpg",
 };
+
+function PopupInContainerTemplate(props) {
+  const { position } = props;
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "90%",
+        height: "auto",
+        aspectRatio: "16/9",
+        border: "dashed 1px red",
+        overflow: "hidden",
+      }}
+    >
+      <VideoPopup
+        popupContent="This popup is in a container"
+        popupTitle="This is the title."
+        popupThumbnail="images/default-thumbnail.jpg"
+        position={position}
+      />
+    </div>
+  );
+}
+export const PopupInContainer = PopupInContainerTemplate.bind({});
+PopupInContainer.args = {
+  position: "bottom",
+};
 // export const DefaultPopup = () => {
 //   return (
 //     <VideoPopup

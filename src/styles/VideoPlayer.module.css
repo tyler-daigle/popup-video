@@ -4,15 +4,6 @@
   aspect-ratio: 16 / 9;
 }
 
-.popup {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  background-color: rgba(248, 246, 248, 0.5);
-  color: white;
-}
-
 .videoPlayer {
   width: 100%;
   height: 100%;

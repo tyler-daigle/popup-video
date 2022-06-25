@@ -8,6 +8,7 @@
   display: inline-flex;
   align-items: center;
   overflow: hidden;
+  position: absolute;
 }
 
 .popupThumbnail {
@@ -32,4 +33,14 @@
   font-weight: bold;
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.popupTop {
+  top: 1rem;
+  left: 1rem;
+}
+
+.popupBottom {
+  top: 100%;
+  transform: translate(1rem, calc(-100% - 1rem));
 }

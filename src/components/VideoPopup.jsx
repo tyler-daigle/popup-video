@@ -4,9 +4,14 @@ export default function VideoPopup({
   popupContent,
   popupThumbnail,
   popupTitle,
+  position = "bottom",
 }) {
   return (
-    <div className={styles.popupContainer}>
+    <div
+      className={`${styles.popupContainer} ${
+        position === "bottom" ? styles.popupBottom : styles.popupTop
+      }`}
+    >
       {popupThumbnail && (
         <img
           className={styles.popupThumbnail}
