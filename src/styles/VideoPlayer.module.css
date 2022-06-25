@@ -1,6 +1,15 @@
 .videoPlayerContainer {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(218, 233, 18, 0.5);
 }
 
 .videoPlayer {
