@@ -5,16 +5,16 @@ export default function VideoPopup({
   popupThumbnail,
   popupTitle,
 }) {
-  const img = popupThumbnail || "images/default-thumbnail.jpg";
-
   return (
     <div className={styles.popupContainer}>
-      <img
-        className={styles.popupThumbnail}
-        src={img}
-        alt="popup thumbnail"
-        height="100"
-      />
+      {popupThumbnail && (
+        <img
+          className={styles.popupThumbnail}
+          src={popupThumbnail}
+          alt="popup thumbnail"
+          height="100"
+        />
+      )}
 
       <div className={styles.popupContentContainer}>
         <aside>
