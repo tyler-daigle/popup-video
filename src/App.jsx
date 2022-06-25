@@ -1,9 +1,25 @@
 import VideoPlayer from "./components/VideoPlayer";
 
 function App() {
+  const video = "videos/nosferatu.mp4";
+  const popupData = [
+    {
+      time: 15,
+      duration: 5,
+      text: "This is a popup for 5 seconds",
+      thumbnail: null,
+    },
+    {
+      time: 35,
+      duration: 10,
+      text: "This is a popup for 10 seconds",
+      thumbnail: null,
+    },
+  ];
+
   return (
     <div>
-      <VideoPlayer />
+      <VideoPlayer videoSource={video} popupData={popupData} />
     </div>
   );
 }
