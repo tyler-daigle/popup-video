@@ -1,8 +1,10 @@
 import styles from "../styles/VideoPlayer.module.css";
-export default function VideoPlayer() {
+export default function VideoPlayer({ videoSource, popupData }) {
   return (
-    <div>
-      <h2>Video Player</h2>
+    <div className={styles.videoPlayerContainer}>
+      <video className={styles.videoPlayer} controls>
+        <source src={videoSource} type="video/mp4" />
+      </video>
     </div>
   );
 }
