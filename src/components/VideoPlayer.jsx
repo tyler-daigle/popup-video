@@ -6,12 +6,18 @@ export default function VideoPlayer({ videoSource, popupData }) {
   const [currentPopupIndex, setCurrentPopupIndex] = useState(0);
   const [popupContent, setPopupContent] = useState("This is some test content");
 
+  // create a videoPaused state and check if that has changed
+  // if the video is paused we have to pause the timers that
+  // close the popups also.
+
+  // also have to reset the index of the current popup if we go backwards.
+
   const checkForPopupTime = (currentTime) => {
     if (popupData && currentPopupIndex < popupData.length) {
-      console.log(`checking ${Math.floor(currentTime)}`);
       if (popupData[currentPopupIndex].time === Math.floor(currentTime)) {
         setPopupVisible(true);
-        console.log("Ok");
+
+        // set a timer for the duration of the popup and hide it after the time is up.
         setTimeout(
           () => setPopupVisible(false),
           popupData[currentPopupIndex].duration * 1000
@@ -20,6 +26,7 @@ export default function VideoPlayer({ videoSource, popupData }) {
       }
     }
   };
+
   return (
     <div className={styles.videoPlayerContainer}>
       {popupVisible && (
