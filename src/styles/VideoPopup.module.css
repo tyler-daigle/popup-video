@@ -10,6 +10,7 @@
   overflow: hidden;
   position: absolute;
   margin: 1rem;
+  width: calc(100% - 2rem);
 }
 
 .popupThumbnail {
@@ -38,12 +39,26 @@
 }
 
 .popupTop {
-  top: 1rem;
+  top: 0;
   /* left: 1rem; */
 }
 
 .popupBottom {
-  top: 100%;
+  bottom: 0;
   /* transform: translate(1rem, calc(-100% - 1rem)); */
-  transform: translateY(calc(-100% - 2rem));
+  /* transform: translateY(calc(-100% - 2rem)); */
+}
+
+.opening {
+  animation: popup-display 500ms linear;
+}
+
+@keyframes popup-display {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

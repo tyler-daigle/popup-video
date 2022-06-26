@@ -10,7 +10,7 @@ export default function VideoPopup({
     <div
       className={`${styles.popupContainer} ${
         position === "bottom" ? styles.popupBottom : styles.popupTop
-      }`}
+      } ${styles.opening}`}
     >
       {popupThumbnail && (
         <img
