@@ -4,17 +4,29 @@ import VideoPopup from "./VideoPopup";
 
 // create a time line of when the popups should appear.
 // The keys are the time in seconds that the popup should appear.
+// Each item in the time line will hold the index of the popup that is to appear.
 // If there is no key for a specific time, that means no popup should show at that time
 
 function createPopupTimeLine(popupData) {
-  return {
-    5: { popupIndex: 0 },
-    6: { popupIndex: 0 },
-    7: { popupIndex: 0 },
-    8: { popupIndex: 0 },
-    9: { popupIndex: 0 },
-    10: { popupIndex: 0 },
-  };
+  // the format of the entries in the timeLine are:
+  // {1: {popupIndex: 0}}
+
+  const timeLine = {};
+
+  popupData.forEach((popupItem, popupIndex) => {
+    const startingTime = popupItem.time;
+    const endingTime = popupItem.time + popupItem.duration;
+
+    for (
+      let currentTime = startingTime;
+      currentTime <= endingTime;
+      currentTime++
+    ) {
+      timeLine[currentTime] = { popupIndex: popupIndex };
+    }
+  });
+
+  return timeLine;
 }
 
 export default function VideoPlayer({ videoSource, popupData }) {
@@ -25,10 +37,7 @@ export default function VideoPlayer({ videoSource, popupData }) {
     [popupData]
   );
 
-  // loop through every popupData and get the time it displays
-
   const videoTick = (currentTime) => {
-    console.log(`checking ${currentTime}`);
     if (popupTimeLine[currentTime]) {
       setCurrentPopupItem(popupData[popupTimeLine[currentTime].popupIndex]);
     } else {
@@ -45,7 +54,7 @@ export default function VideoPlayer({ videoSource, popupData }) {
         <VideoPopup
           popupContent={currentPopupItem.text}
           popupThumbnail={currentPopupItem.thumbnail}
-          popupTitle="This is the title."
+          popupTitle={currentPopupItem.title}
           position={currentPopupItem.position}
         />
       )}

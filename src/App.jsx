@@ -6,9 +6,10 @@ function App() {
     {
       time: 5,
       duration: 5,
-      text: "This is a popup for 5 seconds",
+      text: "This is a popup for 5 seconds.This is a longer title and this thing is actually working pretty good. How long can this be?",
       thumbnail: "images/default-thumbnail.jpg",
       position: "top",
+      title: "This is the first popup. ",
     },
     {
       time: 15,
@@ -16,6 +17,7 @@ function App() {
       text: "This is a popup for 10 seconds",
       thumbnail: "images/default-thumbnail.jpg",
       position: "bottom",
+      title: "This is the second popup.",
     },
   ];
 
