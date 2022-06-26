@@ -6,18 +6,26 @@ function App() {
     {
       time: 5,
       duration: 5,
-      text: "This is a popup for 5 seconds.This is a longer title and this thing is actually working pretty good. How long can this be?",
-      // thumbnail: "images/default-thumbnail.jpg",
+      text: "This is some content here. This was created with the codepen tool that I made.",
+      title: "This is the first popup",
+      thumbnail: "images/default-thumbnail.jpg",
       position: "top",
-      title: "This is the first popup. ",
     },
     {
-      time: 15,
-      duration: 10,
-      text: "This is a popup for 10 seconds",
+      time: 13,
+      duration: 9,
+      text: "This one will not have a thumbnail and it will be on the bottom.",
+      title: "This is the second popup",
+      thumbnail: null,
+      position: "bottom",
+    },
+    {
+      time: 30,
+      duration: 8,
+      text: "This the third popup and it appears at 30 seconds and stays there for 8 seconds",
+      title: "30 Second Mark",
       thumbnail: "images/default-thumbnail.jpg",
       position: "bottom",
-      title: "This is the second popup.",
     },
   ];
 
